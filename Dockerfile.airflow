@@ -1,0 +1,11 @@
+FROM apache/airflow:2.9.0-python3.11
+
+USER airflow
+
+ENV AIRFLOW_HOME=/opt/airflow
+
+# Install Flask-Session using correct pip path
+RUN /home/airflow/.local/bin/pip install Flask-Session && \
+    SESSION_FILE=$(python -c "import flask_session, os; print(os.path.join(flask_session.__path__[0], 'sessions.py'))") && \
+    echo "from datetime import timezone" >> $SESSION_FILE && \
+    sed -i "s/datetime.utcnow()/datetime.now(timezone.utc)/g" $SESSION_FILE
