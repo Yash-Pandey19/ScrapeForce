@@ -31,7 +31,7 @@
 ---
 
 ## 📁 Project Structure
-
+```
 ScrapeForce/
 │
 ├── dags/
@@ -48,7 +48,7 @@ ScrapeForce/
 ├── requirements.txt # Python dependencies
 ├── .env # SMTP credentials for alerts
 └── README.md # Project documentation
-
+```
 ---
 
 ## ⚙️ How to Get Started
@@ -86,6 +86,7 @@ Enable and trigger the scrapeforce_web_scraping DAG
 Scraped headlines will be saved to the PostgreSQL table scraped_data
 
 ```
+--- 
 ### 📊 Sample Dashboard
 Using Metabase:
 
